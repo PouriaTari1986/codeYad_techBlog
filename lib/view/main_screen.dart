@@ -1,4 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages, camel_case_types
+import 'package:flutter/rendering.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -52,17 +53,15 @@ class _mainScreenState extends State<mainScreen> {
         body: Stack(
           children: 
           [
-            Center(
-              child: Positioned.fill(child:
-              IndexedStack(
-                index: selectedPageIndex,
-                children: [
-                  HomeScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
-                  profile_screen(size: size, textTheme: textTheme, bodyMargin: bodyMargin)
-                ],
-              )
-               ),
-            ),
+            Positioned.fill(child:
+            IndexedStack(
+              index: selectedPageIndex,
+              children: [
+                HomeScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
+                profile_screen(size: size, textTheme: textTheme, bodyMargin: bodyMargin)
+              ],
+            )
+             ),
             BottomNavigation(size: size,
              bodyMargin: bodyMargin,
              changeScreen: (int value){
@@ -129,18 +128,21 @@ class BottomNavigation extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          IconButton(onPressed:
-           (){},
-                
-            icon: Assets.images.submit.image(color: Colors.white)),
+
           IconButton(onPressed:
            (){changeScreen(0);},
                 
-            icon: Assets.images.home.image(color: Colors.white)),
+            icon: Assets.images.home.image(color: Colors.white,height: size.height/22)),
+
+          IconButton(onPressed:
+           (){},
+                
+            icon: Assets.images.submit.image(color: Colors.white,height: size.height/22)),
+
           IconButton(onPressed:
            ()=>changeScreen(1),
                 
-            icon: Assets.images.user.image(color: Colors.white)),
+            icon: Assets.images.user.image(color: Colors.white,height: size.height/22)),
         ],
       ),
                 ),
