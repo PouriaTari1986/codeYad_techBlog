@@ -1,8 +1,11 @@
+
 import 'dart:ui';
 
-class solidColors{
+class SolidColors{
 
   static const Color colorTitle = Color.fromARGB(255, 40, 107, 184);
+
+  static const Color divider = Color.fromARGB(255, 112, 112, 112);
 
   static const Color primaryColor = Color.fromARGB(255, 68, 4, 87);
 
@@ -28,27 +31,49 @@ class solidColors{
 
   static const Color posterSubtitle = Color.fromARGB(200, 255, 255, 255);
 
+
 }
-class gradiantColors{
+class GradiantColors{
 
 
 static const List<Color> bottomNav = [
 
-const Color.fromARGB(255, 25, 0, 94),const Color.fromARGB(255, 68, 4, 87)
+Color.fromARGB(255, 25, 0, 94),Color.fromARGB(255, 68, 4, 87)
 
 ];
 
 static const List<Color> hashtagBg = [
 
-const Color.fromARGB(255, 0, 0, 0),const Color.fromARGB(255, 63, 63, 63)
+Color.fromARGB(255, 0, 0, 0),Color.fromARGB(255, 63, 63, 63)
 
 ];
 
 static const List<Color> homePosterGraviant = [
 
-const Color.fromARGB(0, 0, 0, 0)
-,const Color.fromARGB(195, 72, 20, 88)
-,const Color.fromARGB(255, 280, 20, 81)
+Color.fromARGB(0, 0, 0, 0)
+,Color.fromARGB(195, 72, 20, 88)
+,Color.fromARGB(255, 280, 20, 81)
+
+];
+
+
+static const List<Color> blogPost = [
+
+Color.fromARGB(255, 25, 0, 94)
+,Color.fromARGB(0, 0, 0, 0)
+
+
+];
+
+
+
+
+
+static const List<Color> bottomNavBackGround = [
+
+Color.fromARGB(0, 255, 255, 255)
+,Color.fromARGB(255, 255, 255, 255)
+
 
 ];
 

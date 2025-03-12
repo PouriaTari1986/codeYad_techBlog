@@ -15,18 +15,51 @@ class $AssetsImagesGen {
   /// File path: assets/images/Group 1.png
   AssetGenImage get group1 => const AssetGenImage('assets/images/Group 1.png');
 
+  /// File path: assets/images/avatar.png
+  AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
+
+  /// File path: assets/images/bluePen.png
+  AssetGenImage get bluePen => const AssetGenImage('assets/images/bluePen.png');
+
   /// File path: assets/images/hashtag.png
   AssetGenImage get hashtag => const AssetGenImage('assets/images/hashtag.png');
 
+  /// File path: assets/images/home.png
+  AssetGenImage get home => const AssetGenImage('assets/images/home.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// File path: assets/images/mic.png
+  AssetGenImage get mic => const AssetGenImage('assets/images/mic.png');
 
   /// File path: assets/images/programming.png
   AssetGenImage get programming =>
       const AssetGenImage('assets/images/programming.png');
 
+  /// File path: assets/images/smile.svg
+  String get smile => 'assets/images/smile.svg';
+
+  /// File path: assets/images/submit.png
+  AssetGenImage get submit => const AssetGenImage('assets/images/submit.png');
+
+  /// File path: assets/images/user.png
+  AssetGenImage get user => const AssetGenImage('assets/images/user.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [group1, hashtag, logo, programming];
+  List<dynamic> get values => [
+    group1,
+    avatar,
+    bluePen,
+    hashtag,
+    home,
+    logo,
+    mic,
+    programming,
+    smile,
+    submit,
+    user,
+  ];
 }
 
 class Assets {

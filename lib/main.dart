@@ -1,16 +1,17 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tech_blog/My_Colors.dart';
-// ignore: unused_import
-import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/splash_screen.dart';
+import 'package:tech_blog/my_colors.dart';
+import 'package:tech_blog/view/register_intro.dart';
+// import 'package:tech_blog/view/splash_screen.dart';
 void main(){
 
 SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor:
-solidColors.statusBarColor,
+SolidColors.statusBarColor,
 statusBarIconBrightness: Brightness.dark,
-systemNavigationBarColor: solidColors.systemNavigationBarColor,
+systemNavigationBarColor: SolidColors.systemNavigationBarColor,
 systemNavigationBarIconBrightness: Brightness.dark
  ));
 runApp(MyApp());
@@ -25,16 +26,18 @@ class MyApp extends StatelessWidget{
 
     return MaterialApp(
 
-        title: 'Localizations Sample App',
+              title: 'Localizations Sample App',
   localizationsDelegates: [
     GlobalMaterialLocalizations.delegate,
     GlobalWidgetsLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
   ],
   supportedLocales: [
-    Locale('fa, '), // farsi
+    Locale('fa',''), // farsi
   
   ],
+
+
   theme: ThemeData(
     fontFamily: 'dana',
     textTheme: TextTheme(
@@ -42,26 +45,39 @@ class MyApp extends StatelessWidget{
         fontFamily: 'dana',
         fontSize: 16,
         fontWeight: FontWeight.w700,
-        color: solidColors.posteTitle
+        color: SolidColors.posteTitle
       ),
       titleLarge: TextStyle(
         fontFamily: 'dana',
         fontSize: 14,
         fontWeight: FontWeight.w300,
-        color: solidColors.posterSubtitle
+        color: SolidColors.posterSubtitle
+      ),
+      titleMedium: TextStyle(
+        fontFamily: 'dana',
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        color: SolidColors.colorTitle
       ),
       headlineMedium: TextStyle(
         fontFamily: 'dana',
         fontSize: 14,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w700,
         color: Colors.white
+      ),
+      titleSmall: TextStyle(
+        fontFamily: 'dana',
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        color: const Color.fromARGB(255, 0, 0, 0)
       ),
       
     )
 
   ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen()
+      home: RegisterInro()
+      // home: SplashScreen()
     );
 
   }
