@@ -59,7 +59,9 @@ class profile_screen extends StatelessWidget {
               },
               splashColor: SolidColors.primaryColor,
               child: SizedBox(height: 45,
-                child: Center(child: Text(MyStrings.myFavoriteBlog,style: textTheme.titleSmall,))),
+                child: Center(
+                  child:
+                   Text(MyStrings.myFavoriteBlog,style: textTheme.titleSmall,))),
             ),
       
             TechDivider(size: size),
@@ -69,7 +71,9 @@ class profile_screen extends StatelessWidget {
               },
               splashColor: SolidColors.primaryColor,
               child: SizedBox(height: 45,
-                child: Center(child: Text(MyStrings.myFavoritePodCast,style: textTheme.titleSmall,))),
+                child: Center(
+                  child:
+                   Text(MyStrings.myFavoritePodCast,style: textTheme.titleSmall,))),
             ),
       
             TechDivider(size: size),
@@ -79,7 +83,9 @@ class profile_screen extends StatelessWidget {
               },
               splashColor: SolidColors.primaryColor,
               child: SizedBox(height: 45,
-                child: Center(child: Text(MyStrings.logOut,style: textTheme.titleSmall,))),
+                child: Center(
+                  child:
+                   Text(MyStrings.logOut,style: textTheme.titleSmall,))),
             ),
             SizedBox(height: 60,)
       

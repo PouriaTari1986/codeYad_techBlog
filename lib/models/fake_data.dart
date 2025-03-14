@@ -29,6 +29,7 @@ List<HashTagModel> tagList = [
 ];
 
 List<HashTagModel> selectedTags = [];
+ List<HashTagModel> catList =[];
 
 List<BlogModel> blogList = [
   BlogModel(

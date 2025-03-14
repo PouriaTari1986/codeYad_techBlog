@@ -15,6 +15,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/Group 1.png
   AssetGenImage get group1 => const AssetGenImage('assets/images/Group 1.png');
 
+  /// File path: assets/images/arrowDown.svg
+  String get arrowDown => 'assets/images/arrowDown.svg';
+
   /// File path: assets/images/avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
 
@@ -49,6 +52,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<dynamic> get values => [
     group1,
+    arrowDown,
     avatar,
     bluePen,
     hashtag,

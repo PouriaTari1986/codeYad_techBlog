@@ -3,6 +3,9 @@
 class MyStrings {
 
 static const String viewHotestBlog = "مشاهده داغ ترین نوشته ها";
+static const String chooseCat = "دسته بندی هایی که دوست داری رو انتخاب کن";
+static const String insertYourEmail = " لطفا ایمیل خود را وارد کنید";
+static const String insertActivationCode = "لطفا کد فعال سازی را وارد کنید";
 static const String viewHotestPodCast = "مشاهده داغ ترین پادکست ها";
 static const String writeArticle = "ارسال مقاله ها";
 static const String submitPodCast ="ارسال پادکست";
@@ -18,7 +21,8 @@ static const String welcome = """به تک‌بلاگ خوش اومدی
 ثبت نام کنی """;
 
 
-
+static const String welcometextPage = """تبریک میگم ، ایمیل با موفقیت تایید شد
+لطفا اطلاعات ثبت نام رو کامل کن""";
 
 
 

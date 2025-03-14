@@ -7,17 +7,21 @@ class SolidColors{
 
   static const Color divider = Color.fromARGB(255, 112, 112, 112);
 
+  static const Color hintTextColor = Color.fromARGB(255, 170, 155, 155);
+
   static const Color primaryColor = Color.fromARGB(255, 68, 4, 87);
 
   static const Color textTitle = Color.fromARGB(255, 0, 0, 0);
 
   static const Color scaffoldBackGround = Color.fromARGB(255, 255, 255, 255);
 
-  static const Color systemNavigationBarColor = Color.fromARGB(255, 255, 255, 255);
+  static const Color systemNavigationBarColor = Color.fromARGB(255, 187, 187, 187);
 
   static const Color statusBarColor = Color.fromARGB(255, 255, 255, 255);
 
   static const Color lightText = Color.fromARGB(255, 255, 255, 255);
+
+  static const Color surfaceColor = Color.fromARGB(255, 242, 242, 242);
 
   static const Color selectedPodCast = Color.fromARGB(255, 255, 139, 26);
 

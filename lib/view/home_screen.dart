@@ -226,90 +226,93 @@ class HomePageBlogList extends StatelessWidget {
         itemCount: blogList.getRange(0, 5).length,
         scrollDirection: Axis.horizontal,
         itemBuilder:
-            (contex, index) => Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 12,
-                    right: index == 0 ? bodyMargin : 15,
-                  ),
-                  child: SizedBox(
-                    height: size.height / 7,
-                    width: size.width / 2.6,
-                    child: Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                              image: NetworkImage(blogList[index].imageUrl!),
-                              fit: BoxFit.cover,
+            (contex, index) => SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 12,
+                      right: index == 0 ? bodyMargin : 15,
+                    ),
+                    child: SizedBox(
+                      height: size.height / 7,
+                      width: size.width / 2.6,
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              image: DecorationImage(
+                                image: NetworkImage(blogList[index].imageUrl!),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            foregroundDecoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(16)),
+                              gradient: LinearGradient(
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                                colors: GradiantColors.blogPost,
+                              ),
                             ),
                           ),
-                          foregroundDecoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(16)),
-                            gradient: LinearGradient(
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                              colors: GradiantColors.blogPost,
+                          Positioned(
+                            bottom: 8,
+                            right: 0,
+                            left: 0,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text(
+                                      blogList[index].writer!,
+                                      style: textTheme.titleLarge,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      blogList[index].views!,
+                                      style: textTheme.titleLarge,
+                                    ),
+                                    SizedBox(width: 8),
+                                    Icon(
+                                      CupertinoIcons.eye_fill,
+                                      size: 16,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
-                        ),
-                        Positioned(
-                          bottom: 8,
-                          right: 0,
-                          left: 0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    blogList[index].writer!,
-                                    style: textTheme.titleLarge,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    blogList[index].views!,
-                                    style: textTheme.titleLarge,
-                                  ),
-                                  SizedBox(width: 8),
-                                  Icon(
-                                    CupertinoIcons.eye_fill,
-                                    size: 16,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 12,
-                    right: index == 0 ? bodyMargin : 15,
-                  ),
-                  child: SizedBox(
-                    width: size.width / 2.4,
-                    child: Text(
-                      blogList[index].title!,
-                      textDirection: TextDirection.rtl,
-                      style: textTheme.titleSmall,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 12,
+                      right: index == 0 ? bodyMargin : 15,
+                    ),
+                    child: SizedBox(
+                      width: size.width/2.6
+                      ,
+                      child: Text(
+                        blogList[index].title!,
+                        textDirection: TextDirection.rtl,
+                        style: textTheme.titleSmall,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
       ),
     );
@@ -410,3 +413,9 @@ class HomePagePoster extends StatelessWidget {
     );
   }
 }
+
+
+  
+
+
+

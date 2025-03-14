@@ -1,4 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages, camel_case_types
+// ignore: unnecessary_import
 import 'package:flutter/rendering.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -7,6 +8,7 @@ import 'package:tech_blog/my_Colors.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/home_screen.dart';
 import 'package:tech_blog/view/profile_screen.dart';
+import 'package:tech_blog/view/register_intro.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
 
@@ -22,6 +24,9 @@ class mainScreen extends StatefulWidget {
     var selectedPageIndex = 0;
 
 class _mainScreenState extends State<mainScreen> {
+
+
+ 
   @override
   Widget build(BuildContext context) {
 
@@ -34,19 +39,76 @@ class _mainScreenState extends State<mainScreen> {
 
     return SafeArea(
       child: Scaffold(
-        
+        drawer: Drawer(
+          backgroundColor: SolidColors.scaffoldBackGround,
+          child: 
+            Padding(
+              padding:  EdgeInsets.only(right: bodyMargin),
+              child: ListView(
+                children: [
+                  DrawerHeader(
+                    child:
+                    Center(
+                      child: Assets.images.logo.image(height: 65)
+                    )
+                  
+                   ),
+                   ListTile(
+                    title: Text("پروفایل کاربری",style: textTheme.titleSmall,),
+                    onTap: () {
+                      
+                    },
+                   ),
+                   Divider(
+                    color: SolidColors.divider,
+                   ),
+                   ListTile(
+                    title: Text(" درباره تک بلاگ",style: textTheme.titleSmall,),
+                    onTap: () {
+                      
+                    },
+                   ),
+                   Divider(
+                    color: SolidColors.divider,
+                   ),
+                   ListTile(
+                    title: Text(" اشتراک گذاری تک بلاگ",style: textTheme.titleSmall,),
+                    onTap: () {
+                      
+                    },
+                   ),
+                   Divider(
+                    color: SolidColors.divider,
+                   ),
+                   ListTile(
+                    title: Text(" تک بلاگ در گیت هاب",style: textTheme.titleSmall,),
+                    onTap: () {
+                      
+                    },
+                   ),
+                   Divider(
+                    color: SolidColors.divider,
+                   ),
+                ],
+              ),
+            )
+          
+          ,
+        ),
         appBar: AppBar(
+          
           elevation: 0,
           backgroundColor: SolidColors.scaffoldBackGround,
           title: 
           Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                SizedBox(width: 12,),
+                    Assets.images.logo.image(height: size.height / 13.6), 
+
+                      SizedBox(width: 15,),
                     Icon(CupertinoIcons.search,color: Colors.black,),
-                
-                    Assets.images.logo.image(height: size.height / 13.6),
-                
-                    Icon(CupertinoIcons.line_horizontal_3,color: Colors.black,),
+
                   ],
                 ),
         ),
@@ -58,7 +120,9 @@ class _mainScreenState extends State<mainScreen> {
               index: selectedPageIndex,
               children: [
                 HomeScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
-                profile_screen(size: size, textTheme: textTheme, bodyMargin: bodyMargin)
+                profile_screen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
+                RegisterIntro(),
+
               ],
             )
              ),
@@ -102,9 +166,9 @@ class BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 0,
+      bottom: 8,
       right: 0,
-      left: 0,
+      left: 0 ,
       child: Container(
               height: size.height/10,
               decoration: BoxDecoration(
@@ -135,7 +199,7 @@ class BottomNavigation extends StatelessWidget {
             icon: Assets.images.home.image(color: Colors.white,height: size.height/22)),
 
           IconButton(onPressed:
-           (){},
+           ()=>changeScreen(2),
                 
             icon: Assets.images.submit.image(color: Colors.white,height: size.height/22)),
 
