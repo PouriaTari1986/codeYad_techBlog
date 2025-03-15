@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/My_Strings.dart';
-import 'package:tech_blog/my_Component.dart';
+import 'package:tech_blog/component/My_Strings.dart';
+import 'package:tech_blog/component/my_Component.dart';
 import 'package:validators/validators.dart';
 
 class RegisterIntro extends StatelessWidget{

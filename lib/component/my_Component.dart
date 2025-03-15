@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:tech_blog/view/register_complete.dart';
 import 'My_Colors.dart';
-import "models/fake_data.dart";
+import "../models/fake_data.dart";
 
 
 
