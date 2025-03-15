@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tech_blog/my_Colors.dart';
+import 'package:tech_blog/component/My_Colors.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/home_screen.dart';
 import 'package:tech_blog/view/profile_screen.dart';
