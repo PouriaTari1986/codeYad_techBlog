@@ -105,7 +105,7 @@ class HomeScreen extends StatelessWidget {
               size: size,
             ),
 
-            PodCastList(size: size, bodyMargin: bodyMargin),
+            topPodcast()
           ],
         ),
       ),
@@ -214,71 +214,69 @@ Widget topVisited(){
     );
 }
 
-}
 
+Widget topPodcast(){
+  return
 
-class PodCastList extends StatelessWidget {
-  const PodCastList({super.key, required this.size, required this.bodyMargin});
-
-  final Size size;
-  final double bodyMargin;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
+  SizedBox(
       height: size.height / 3.5,
-      child: ListView.builder(
-        itemCount: blogList.getRange(0, 5).length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (contex, index) {
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    8,
-                    8,
-                    index == 0 ? bodyMargin : 8,
-                    8,
-                  ),
-                  child: SizedBox(
-                    height: size.height / 5.3,
-                    width: size.width / 2.6,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        image: DecorationImage(
-                          image: NetworkImage(blogList[index].imageUrl!),
-                          fit: BoxFit.cover,
+      child: Obx(
+        ()=> ListView.builder(
+          itemCount: homeScreenController.topPodcast.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (contex, index) {
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      8,
+                      8,
+                      index == 0 ? bodyMargin : 8,
+                      8,
+                    ),
+                    child: SizedBox(
+                      height: size.height / 5.3,
+                      width: size.width / 2.6,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                             homeScreenController.topPodcast[index].image!
+                              ),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 12,
-                    right: index == 0 ? bodyMargin : 15,
-                  ),
-                  child: SizedBox(
-                    width: size.width / 2.4,
-                    child: Text(
-                      blogList[index].title!,
-                      textDirection: TextDirection.rtl,
-                      style: Theme.of(context).textTheme.titleSmall,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 12,
+                      right: index == 0 ? bodyMargin : 15,
+                    ),
+                    child: SizedBox(
+                      width: size.width / 2.4,
+                      child: Text(
+                       homeScreenController.topPodcast[index].title!,
+                        textDirection: TextDirection.rtl,
+                        style: textTheme.titleSmall,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
-  }
 }
+}
+
 
 class SeeMorePodCast extends StatelessWidget {
   const SeeMorePodCast({

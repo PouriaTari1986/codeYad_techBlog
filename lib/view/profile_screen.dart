@@ -1,10 +1,10 @@
 // ignore: unnecessary_import, depend_on_referenced_packages
 import 'package:flutter/widgets.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter/material.dart';
 import 'package:tech_blog/component/My_Colors.dart';
 import 'package:tech_blog/component/My_Strings.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:tech_blog/component/my_Component.dart';
 
 
