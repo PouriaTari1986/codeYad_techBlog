@@ -91,7 +91,7 @@ class MainScreen extends StatelessWidget {
                    ListTile(
                     title: Text(" تک بلاگ در گیت هاب",style: textTheme.titleSmall,),
                     onTap: () {
-                      mylaunchUrl(MyStrings.techBlogGitHubUrl);
+                      myLaunchUrl(MyStrings.techBlogGitHubUrl);
                     },
                    ),
                    Divider(

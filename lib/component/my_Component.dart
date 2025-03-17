@@ -1,5 +1,5 @@
 // ignore: depend_on_referenced_packages
-import 'dart:developer';
+import 'dart:developer'as developer;
 
 // ignore: depend_on_referenced_packages
 import 'package:flutter/material.dart';
@@ -94,16 +94,14 @@ class Botton extends StatelessWidget {
        Text("ادامه",style: Theme.of(context).textTheme.headlineMedium));
   }
 }
-mylaunchUrl(String url) async{
-
+Future<void> myLaunchUrl(String url) async {
   var uri = Uri.parse(url);
 
-if(await canLaunchUrl(uri)){
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      developer.log("Could not launch ${uri.toString()}");
+    }
 
-await launchUrl(uri);
-
-}else{
-  log("could not lauch ${uri.toString()}");
-}
-
+  
 }
