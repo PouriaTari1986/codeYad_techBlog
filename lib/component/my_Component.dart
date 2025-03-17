@@ -3,6 +3,7 @@ import 'dart:developer'as developer;
 
 // ignore: depend_on_referenced_packages
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/view/register_complete.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -102,6 +103,18 @@ Future<void> myLaunchUrl(String url) async {
     } else {
       developer.log("Could not launch ${uri.toString()}");
     }
-
+    
   
+}
+
+
+class Loading extends StatelessWidget {
+  const Loading({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SpinKitFadingCircle(color: SolidColors.primaryColor,size: 35,);
+  }
 }
