@@ -5,8 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_blog/component/My_Colors.dart';
+import 'package:tech_blog/component/my_strings.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/component/My_Strings.dart';
 import 'package:tech_blog/models/fake_data.dart';
 import 'package:tech_blog/component/my_Component.dart';
 
