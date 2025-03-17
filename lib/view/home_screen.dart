@@ -243,7 +243,7 @@ Widget topPodcast(){
                           borderRadius: BorderRadius.circular(16),
                           image: DecorationImage(
                             image: NetworkImage(
-                             homeScreenController.topPodcast[index].image!
+                             homeScreenController.topPodcast[index].poster!
                               ),
                             fit: BoxFit.cover,
                           ),

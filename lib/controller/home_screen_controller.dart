@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:tech_blog/models/articel_model.dart';
+import 'package:tech_blog/models/podcast_model.dart';
 import 'package:tech_blog/models/poster_model.dart';
 import 'package:tech_blog/models/tags_model.dart';
 // ignore: unused_import
@@ -11,7 +12,7 @@ class HomeScreenController extends GetxController {
 late Rx<PosterModel> poster;
 RxList <TagsModel> tagsList = RxList();
 RxList <ArticleModel> topVisitedList = RxList();
-RxList <PosterModel> topPodcast = RxList();
+RxList <PodcastModel> topPodcast = RxList();
 
 
 @override
@@ -34,7 +35,7 @@ void onInit() {
 
         response.data["top_podcasts"].forEach((element){
 
-          topPodcast.add(PosterModel.fromJson(element));
+          topPodcast.add(PodcastModel.fromJson(element));
         });
 
       }
