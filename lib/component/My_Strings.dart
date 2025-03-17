@@ -3,6 +3,7 @@
 class MyStrings {
 
 static const String viewHotestBlog = "مشاهده داغ ترین نوشته ها";
+static const String techBlogGitHubUrl = " https://github.com/sasansafari/techblog";
 static const String chooseCat = "دسته بندی هایی که دوست داری رو انتخاب کن";
 static const String insertYourEmail = " لطفا ایمیل خود را وارد کنید";
 static const String insertActivationCode = "لطفا کد فعال سازی را وارد کنید";

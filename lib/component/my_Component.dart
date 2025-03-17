@@ -1,7 +1,11 @@
 // ignore: depend_on_referenced_packages
+import 'dart:developer';
+
+// ignore: depend_on_referenced_packages
 import 'package:flutter/material.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/view/register_complete.dart';
+import 'package:url_launcher/url_launcher.dart';
 import "../models/fake_data.dart";
 
 
@@ -89,4 +93,17 @@ class Botton extends StatelessWidget {
        child: 
        Text("ادامه",style: Theme.of(context).textTheme.headlineMedium));
   }
+}
+mylaunchUrl(String url) async{
+
+  var uri = Uri.parse(url);
+
+if(await canLaunchUrl(uri)){
+
+await launchUrl(uri);
+
+}else{
+  log("could not lauch ${uri.toString()}");
+}
+
 }

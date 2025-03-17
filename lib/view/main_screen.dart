@@ -8,6 +8,7 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/component/my_strings.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/home_screen.dart';
@@ -90,7 +91,7 @@ class MainScreen extends StatelessWidget {
                    ListTile(
                     title: Text(" تک بلاگ در گیت هاب",style: textTheme.titleSmall,),
                     onTap: () {
-                      
+                      mylaunchUrl(MyStrings.techBlogGitHubUrl);
                     },
                    ),
                    Divider(
