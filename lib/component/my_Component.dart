@@ -106,7 +106,35 @@ Future<void> myLaunchUrl(String url) async {
     
   
 }
-
+  PreferredSize appBar(String title) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(80),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Center(child: Text(" title",style: Theme.of(context).textTheme.titleSmall,)),
+            )
+            
+          ],
+          leading: Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(color: SolidColors.primaryColor,
+              shape: BoxShape.circle),
+              child: Icon(Icons.keyboard_arrow_right,color: Colors.white,),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
 class Loading extends StatelessWidget {
   const Loading({
