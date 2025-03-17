@@ -44,6 +44,7 @@ dependencies:
   validators: ^3.0.0
   get: ^4.7.2
   dio: ^5.8.0+1
+  share_plus: ^10.1.4
 
 
 

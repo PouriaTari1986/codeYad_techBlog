@@ -19,6 +19,10 @@ static const String welcome = """به تک‌بلاگ خوش اومدی
 
 برای ارسال مطلب و پادکست باید حتما ♣
 ثبت نام کنی """;
+static const String shatePage = """
+            من از تک بلاگ استفاده میکنم،خیلی باحاله،تو هم داشته باش/n
+            www.sasansafari.com
+""";
 
 
 static const String welcometextPage = """تبریک میگم ، ایمیل با موفقیت تایید شد
