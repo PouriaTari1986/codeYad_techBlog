@@ -2,20 +2,26 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:tech_blog/component/My_Colors.dart';
 import 'package:tech_blog/component/My_Strings.dart';
+import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:flutter/cupertino.dart';
 import '../models/fake_data.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({
+   HomeScreen({
     super.key,
     required this.size,
     required this.textTheme,
     required this.bodyMargin,
   });
-
+  
+  HomeScreenController homeScreenController = Get.put(HomeScreenController());
+  
   final Size size;
   final TextTheme textTheme;
   final double bodyMargin;
@@ -92,12 +98,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            HomePageBlogList(
-              size: size,
-              bodyMargin: bodyMargin,
-              textTheme: textTheme,
-            ),
-
+           topVisited(),
             SeeMorePodCast(
               bodyMargin: bodyMargin,
               textTheme: textTheme,
@@ -110,7 +111,111 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+Widget topVisited(){
+
+  return SizedBox(
+      height: size.height / 4.3,
+      child: Obx(
+        ()=> ListView.builder(
+          itemCount: homeScreenController.topVisitedList.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder:
+              (contex, index) => SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: 12,
+                        right: index == 0 ? bodyMargin : 15,
+                      ),
+                      child: SizedBox(
+                        height: size.height / 7,
+                        width: size.width / 2.6,
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                  homeScreenController.topVisitedList[index].image!),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              foregroundDecoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(16)),
+                                gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  colors: GradiantColors.blogPost,
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 8,
+                              right: 0,
+                              left: 0,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                       homeScreenController.topVisitedList[index].author!,
+                                        style: textTheme.titleLarge,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        homeScreenController.topVisitedList[index].view!,
+                                        style: textTheme.titleLarge,
+                                      ),
+                                      SizedBox(width: 8),
+                                      Icon(
+                                        CupertinoIcons.eye_fill,
+                                        size: 16,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: 12,
+                        right: index == 0 ? bodyMargin : 15,
+                      ),
+                      child: SizedBox(
+                        width: size.width/2.6
+                        ,
+                        child: Text(
+                         homeScreenController.topVisitedList[index].title!,
+                          textDirection: TextDirection.rtl,
+                          style: textTheme.titleSmall,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+        ),
+      ),
+    );
 }
+
+}
+
 
 class PodCastList extends StatelessWidget {
   const PodCastList({super.key, required this.size, required this.bodyMargin});
@@ -206,118 +311,7 @@ class SeeMorePodCast extends StatelessWidget {
   }
 }
 
-class HomePageBlogList extends StatelessWidget {
-  const HomePageBlogList({
-    super.key,
-    required this.size,
-    required this.bodyMargin,
-    required this.textTheme,
-  });
 
-  final Size size;
-  final double bodyMargin;
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: size.height / 4.3,
-      child: ListView.builder(
-        itemCount: blogList.getRange(0, 5).length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder:
-            (contex, index) => SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: 12,
-                      right: index == 0 ? bodyMargin : 15,
-                    ),
-                    child: SizedBox(
-                      height: size.height / 7,
-                      width: size.width / 2.6,
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              image: DecorationImage(
-                                image: NetworkImage(blogList[index].imageUrl!),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            foregroundDecoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(16)),
-                              gradient: LinearGradient(
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                                colors: GradiantColors.blogPost,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 8,
-                            right: 0,
-                            left: 0,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Text(
-                                      blogList[index].writer!,
-                                      style: textTheme.titleLarge,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      blogList[index].views!,
-                                      style: textTheme.titleLarge,
-                                    ),
-                                    SizedBox(width: 8),
-                                    Icon(
-                                      CupertinoIcons.eye_fill,
-                                      size: 16,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: 12,
-                      right: index == 0 ? bodyMargin : 15,
-                    ),
-                    child: SizedBox(
-                      width: size.width/2.6
-                      ,
-                      child: Text(
-                        blogList[index].title!,
-                        textDirection: TextDirection.rtl,
-                        style: textTheme.titleSmall,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-      ),
-    );
-  }
-}
 
 class SeeMoreBlog extends StatelessWidget {
   const SeeMoreBlog({super.key});

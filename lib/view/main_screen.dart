@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:tech_blog/component/My_Colors.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/home_screen.dart';
@@ -13,22 +14,25 @@ import 'package:tech_blog/view/register_intro.dart';
 
 
 
-class mainScreen extends StatefulWidget {
-  const mainScreen({super.key});
-
-  @override
-  State<mainScreen> createState() => _mainScreenState();
-}
 
 
-    var selectedPageIndex = 0;
 
-class _mainScreenState extends State<mainScreen> {
+
+// ignore: must_be_immutable
+class MainScreen extends StatelessWidget {
+
+  RxInt selectedPageIndex = 0.obs;
+
+  MainScreen({super.key});
+
+
 
 
  
   @override
   Widget build(BuildContext context) {
+
+
 
     var textTheme = Theme.of(context).textTheme;
     var size = MediaQuery.of(context).size;
@@ -117,7 +121,10 @@ class _mainScreenState extends State<mainScreen> {
           [
             Positioned.fill(child:
             IndexedStack(
-              index: selectedPageIndex,
+
+              index: selectedPageIndex.value,
+
+
               children: [
                 HomeScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
                 profile_screen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
@@ -130,9 +137,9 @@ class _mainScreenState extends State<mainScreen> {
              bodyMargin: bodyMargin,
              changeScreen: (int value){
 
-                setState(() {
-                  selectedPageIndex = value;
-                });
+         
+                  selectedPageIndex.value = value;
+            
 
              }
              ),
