@@ -1,7 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages, unnecessary_import
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tech_blog/component/my_colors.dart';
@@ -20,7 +22,7 @@ class HomeScreen extends StatelessWidget {
     required this.bodyMargin,
   });
   
-  HomeScreenController homeScreenController = Get.put(HomeScreenController());
+HomeScreenController homeScreenController = Get.put(HomeScreenController());
   
   final Size size;
   final TextTheme textTheme;
@@ -28,6 +30,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+
+
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       child: Padding(
@@ -138,7 +144,7 @@ Widget topVisited(){
                                 borderRadius: BorderRadius.circular(16),
                                 image: DecorationImage(
                                   image: NetworkImage(
-                                  homeScreenController.topVisitedList[index].image!),
+                                 homeScreenController.topVisitedList[index].image!),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -163,7 +169,7 @@ Widget topVisited(){
                                         MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
-                                       homeScreenController.topVisitedList[index].author!,
+                                      homeScreenController.topVisitedList[index].author!,
                                         style: textTheme.titleLarge,
                                       ),
                                     ],
@@ -171,7 +177,7 @@ Widget topVisited(){
                                   Row(
                                     children: [
                                       Text(
-                                        homeScreenController.topVisitedList[index].view!,
+                                      homeScreenController.topVisitedList[index].view!,
                                         style: textTheme.titleLarge,
                                       ),
                                       SizedBox(width: 8),
@@ -238,17 +244,22 @@ Widget topPodcast(){
                     child: SizedBox(
                       height: size.height / 5.3,
                       width: size.width / 2.6,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                             homeScreenController.topPodcast[index].poster!
+                      child: CachedNetworkImage(
+
+                        imageUrl: homeScreenController.topPodcast['index'].poster!,
+                        imageBuilder: (context, imageProvider)=>
+                           Container(
+                            decoration: BoxDecoration(
+                              
+                              borderRadius: BorderRadius.all(Radius.circular(16)),
+                              image: DecorationImage(image: imageProvider,fit: BoxFit.cover),
                               ),
-                            fit: BoxFit.cover,
                           ),
-                        ),
-                      ),
+                        placeholder: (context, url) => 
+                        SpinKitFadingCircle(color: SolidColors.primaryColor,size: 35,),
+                        errorWidget: (context, url, error) => 
+                        Icon(Icons.image_not_supported_outlined,size:55 ,color: Colors.grey,),
+                        )
                     ),
                   ),
                   Padding(
