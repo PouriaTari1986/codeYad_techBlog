@@ -5,10 +5,10 @@ import 'dart:developer'as developer;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/view/register_complete.dart';
 import 'package:url_launcher/url_launcher.dart';
-import "../models/fake_data.dart";
-
+import 'package:get/get.dart';
 
 
 class TechDivider extends StatelessWidget {
@@ -63,7 +63,7 @@ class MainTags extends StatelessWidget {
               Icon(Icons.tag, color: Colors.white, size: 18),
             
               Text(
-                tagList[index].title,
+               Get.find<HomeScreenController>().tagList[index].title!,
                 style: textTheme.headlineMedium,
               ),
             ],

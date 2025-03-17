@@ -11,7 +11,7 @@ import 'package:tech_blog/component/my_strings.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:flutter/cupertino.dart';
-import '../models/fake_data.dart';
+import '../../models/fake_data.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -41,62 +41,6 @@ class HomeScreen extends StatelessWidget {
                     //poster
                     poster(),
 
-                    HomePageTagList(),
-                    SizedBox(
-                      height: 60,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: tagList.length,
-                        itemBuilder: ((context, index) {
-                          return Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              8,
-                              8,
-                              index == 0 ? bodyMargin : 8,
-                              8,
-                            ),
-                            child: Container(
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(24),
-                                ),
-                                gradient: LinearGradient(
-                                  colors: GradiantColors.hashtagBg,
-                                  begin: Alignment.centerRight,
-                                  end: Alignment.centerLeft,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                  16,
-                                  8,
-                                  10,
-                                  8,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Icon(
-                                      Icons.tag,
-                                      color: Colors.white,
-                                      size: 18,
-                                    ),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      tagList[index].title,
-                                      style: textTheme.headlineMedium,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        }),
-                      ),
-                    ),
-
                     SeeMoreBlog(),
                     Padding(
                       padding: EdgeInsets.only(right: bodyMargin, top: 12),
@@ -123,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                       textTheme: textTheme,
                       size: size,
                     ),
-
+                    tags(),
                     topPodcast(),
                   ],
                 )
@@ -406,6 +350,43 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget tags() {
+    return SizedBox(
+      height: 60,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: tagList.length,
+        itemBuilder: ((context, index) {
+          return Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, index == 0 ? bodyMargin : 8, 8),
+            child: Container(
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(24)),
+                gradient: LinearGradient(
+                  colors: GradiantColors.hashtagBg,
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 10, 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(Icons.tag, color: Colors.white, size: 18),
+                    SizedBox(width: 8),
+                    Text(tagList[index].title, style: textTheme.headlineMedium),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }),
+      ),
     );
   }
 }

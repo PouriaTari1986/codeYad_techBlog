@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/models/articel_model.dart';
+import 'package:tech_blog/models/data_models.dart';
 import 'package:tech_blog/models/podcast_model.dart';
 import 'package:tech_blog/models/poster_model.dart';
 import 'package:tech_blog/models/tags_model.dart';
@@ -41,6 +42,12 @@ if(response.statusCode==200){
 
     topPodcast.add(PodcastModel.fromJson(element));
   });
+      response.data['tags'].forEach((element){
+
+    tagList.add(TagsModel.fromJson(element));
+  });
+  
+  
 
   poster.value = PodcastModel.fromJson(response.date['poster']);
 
