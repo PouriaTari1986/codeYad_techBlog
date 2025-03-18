@@ -32,55 +32,57 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-        child:
-            homeScreenController.loading.value == false
-                ? Column(
-                  children: [
-                    //poster
-                    poster(),
-
-                    SeeMoreBlog(),
-                    Padding(
-                      padding: EdgeInsets.only(right: bodyMargin, top: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Assets.images.bluePen.image(
-                            color: SolidColors.colorTitle,
-                            height: size.height / 37,
+      child: Obx(
+        ()=> Padding(
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+          child:
+               homeScreenController.loading.value == false
+                    ? Column(
+                      children: [
+                        //poster
+                        poster(),
+                
+                        SeeMoreBlog(),
+                        Padding(
+                          padding: EdgeInsets.only(right: bodyMargin, top: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Assets.images.bluePen.image(
+                                color: SolidColors.colorTitle,
+                                height: size.height / 37,
+                              ),
+                              SizedBox(width: 8),
+                
+                              Text(
+                                MyStrings.viewHotestBlog,
+                                style: textTheme.titleMedium,
+                              ),
+                            ],
                           ),
-                          SizedBox(width: 8),
-
-                          Text(
-                            MyStrings.viewHotestBlog,
-                            style: textTheme.titleMedium,
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    topVisited(),
-                    SeeMorePodCast(
-                      bodyMargin: bodyMargin,
-                      textTheme: textTheme,
-                      size: size,
-                    ),
-                    tags(),
-                    topPodcast(),
-                  ],
-                )
-                : Center(child: Loading()),
+                        ),
+                
+                        topVisited(),
+                        SeeMorePodCast(
+                          bodyMargin: bodyMargin,
+                          textTheme: textTheme,
+                          size: size,
+                        ),
+                        tags(),
+                        topPodcast(),
+                      ],
+                    )
+                    : Center(child: Loading()),
+              ),
       ),
-    );
+      );
+    
   }
 
   Widget topVisited() {
     return SizedBox(
       height: size.height / 4.3,
-      child: Obx(
-        () => ListView.builder(
+      child:  ListView.builder(
           itemCount: homeScreenController.topVisitedList.length,
           scrollDirection: Axis.horizontal,
           itemBuilder:
@@ -197,15 +199,14 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
         ),
-      ),
-    );
+      );
+    
   }
 
   Widget topPodcast() {
     return SizedBox(
       height: size.height / 3.5,
-      child: Obx(
-        () => ListView.builder(
+      child:  ListView.builder(
           itemCount: homeScreenController.topPodcast.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (contex, index) {
@@ -268,89 +269,91 @@ class HomeScreen extends StatelessWidget {
             );
           },
         ),
-      ),
-    );
+      );
+
   }
 
   Widget poster() {
-    return Stack(
-      children: [
-        Container(
-          width: size.width / 1.19,
-          height: size.height / 4.2,
-          child: CachedNetworkImage(
-            imageUrl: homeScreenController.poster.value.image!,
-            imageBuilder:
-                (context, imageProvider) => Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
+    return 
+       Stack(
+        children: [
+          Container(
+            width: size.width / 1.19,
+            height: size.height / 4.2,
+            child: CachedNetworkImage(
+              imageUrl: homeScreenController.poster.value.image??"no image",
+              imageBuilder:
+                  (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(16)),
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-            placeholder: (context, url) => Loading(),
-            errorWidget:
-                (context, url, error) => Icon(
-                  Icons.image_not_supported_outlined,
-                  size: 50,
-                  color: Colors.grey,
-                ),
-          ),
-          foregroundDecoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-            gradient: LinearGradient(
-              colors: GradiantColors.homePosterGraviant,
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+              placeholder: (context, url) => Loading(),
+              errorWidget:
+                  (context, url, error) => Icon(
+                    Icons.image_not_supported_outlined,
+                    size: 50,
+                    color: Colors.grey,
+                  ),
+            ),
+            foregroundDecoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(16)),
+              gradient: LinearGradient(
+                colors: GradiantColors.homePosterGraviant,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
           ),
-        ),
-
-        Positioned(
-          bottom: 8,
-          left: 0,
-          right: 0,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    homePagePosterMap["writer"] +
-                        // ignore: prefer_interpolation_to_compose_strings
-                        " - " +
-                        homePagePosterMap["date"],
-
-                    style: textTheme.titleLarge,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        homePagePosterMap["view"],
-                        style: textTheme.titleLarge,
-                      ),
-                      SizedBox(width: 8),
-                      Icon(
-                        CupertinoIcons.eye_fill,
-                        size: 16,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 8),
-              Text(
-                homeScreenController.poster.value.title!,
-                style: textTheme.headlineLarge,
-              ),
-            ],
+      
+          Positioned(
+            bottom: 8,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: [
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //   children: [
+                //     Text(
+                //       homePagePosterMap["writer"] +
+                //           // ignore: prefer_interpolation_to_compose_strings
+                //           " - " +
+                //           homePagePosterMap["date"],
+      
+                //       style: textTheme.titleLarge,
+                //     ),
+                //     Row(
+                //       children: [
+                //         Text(
+                //           homePagePosterMap["view"],
+                //           style: textTheme.titleLarge,
+                //         ),
+                //         SizedBox(width: 8),
+                //         Icon(
+                //           CupertinoIcons.eye_fill,
+                //           size: 16,
+                //           color: Colors.white,
+                //         ),
+                //       ],
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(height: 8),
+                Text(
+                  homeScreenController.poster.value.title??"no title",
+                  style: textTheme.headlineLarge,
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
-    );
+        ],
+      );
+    
   }
 
   Widget tags() {
@@ -379,7 +382,9 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Icon(Icons.tag, color: Colors.white, size: 18),
                     SizedBox(width: 8),
-                    Text(tagList[index].title, style: textTheme.headlineMedium),
+                    Text(
+                      Get.find<HomeScreenController>().tagList[index].title!,
+                       style: textTheme.headlineMedium),
                   ],
                 ),
               ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tech_blog/component/my_colors.dart';
+// import 'package:tech_blog/view/article_list_screen.dart';
 import 'package:tech_blog/view/splash_screen.dart';
 
 void main() {

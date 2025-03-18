@@ -33,17 +33,17 @@ if(response.statusCode==200){
 
    topVisitedList.add(ArticleModel.fromJson(element));
   });
+
     response.data['top_podcasts'].forEach((element){
 
    topPodcast.add(PodcastModel.fromJson(element));
   });
+
       response.data['tags'].forEach((element){
 
    tagList.add(TagsModel.fromJson(element));
   });
   
-  
-
   poster.value = PosterModel.fromJson(response.data["poster"]);
   
 

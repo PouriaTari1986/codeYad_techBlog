@@ -124,8 +124,8 @@ Future<void> myLaunchUrl(String url) async {
           leading: Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Container(
-              height: 40,
-              width: 40,
+              height: 50,
+              width: 50,
               decoration: BoxDecoration(color: SolidColors.primaryColor,
               shape: BoxShape.circle),
               child: Icon(Icons.keyboard_arrow_right,color: Colors.white,),
@@ -143,6 +143,6 @@ class Loading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitFadingCircle(color: SolidColors.primaryColor,size: 35,);
+    return SpinKitFadingCube(color: SolidColors.primaryColor,size: 35,);
   }
 }

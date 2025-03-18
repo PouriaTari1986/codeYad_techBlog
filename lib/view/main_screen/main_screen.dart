@@ -29,9 +29,6 @@ class MainScreen extends StatelessWidget {
 
   MainScreen({super.key});
 
-
-
-
  
   @override
   Widget build(BuildContext context) {
@@ -40,9 +37,6 @@ class MainScreen extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
     var size = MediaQuery.of(context).size;
     double bodyMargin = size.width / 10;
-
-
-
 
     return SafeArea(
       child: Scaffold(

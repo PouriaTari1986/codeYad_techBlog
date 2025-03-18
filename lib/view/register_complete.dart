@@ -55,7 +55,7 @@ class _MyCatState extends State<MyCat> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
-                    height: 110,
+                    height: 90,
 
                     child: GridView.builder(
                       physics: ClampingScrollPhysics(),
@@ -63,9 +63,9 @@ class _MyCatState extends State<MyCat> {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
-                            crossAxisSpacing: 8,
+                            crossAxisSpacing: 5,
                             mainAxisSpacing: 8,
-                            childAspectRatio: 2.3,
+                            childAspectRatio: 2.9,
                           ),
 
                       itemBuilder: ((context, index) {
@@ -87,13 +87,13 @@ class _MyCatState extends State<MyCat> {
                     ),
                   ),
                 ),
-                SizedBox(height: 18),
+                SizedBox(height: 12),
                 SvgPicture.asset(Assets.images.arrowDown, height: 45),
                   //Selected Cat
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
-                    height: 120,
+                    height: 100,
 
                     child: GridView.builder(
                       physics: ClampingScrollPhysics(),
