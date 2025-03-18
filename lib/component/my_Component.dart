@@ -29,6 +29,10 @@ class TechDivider extends StatelessWidget {
     );
   }
 }
+
+
+
+
 // ignore: must_be_immutable
 class MainTags extends StatelessWidget {
    MainTags({
@@ -36,6 +40,8 @@ class MainTags extends StatelessWidget {
     required this.textTheme,
     required this.index,
   });
+
+
 
   final TextTheme textTheme;
   // ignore: prefer_typing_uninitialized_variables
@@ -75,6 +81,8 @@ class MainTags extends StatelessWidget {
 }
 
 
+
+
 class Botton extends StatelessWidget {
   const Botton({
     super.key,
@@ -95,6 +103,9 @@ class Botton extends StatelessWidget {
        Text("ادامه",style: Theme.of(context).textTheme.headlineMedium));
   }
 }
+
+
+
 Future<void> myLaunchUrl(String url) async {
   var uri = Uri.parse(url);
 
@@ -106,8 +117,16 @@ Future<void> myLaunchUrl(String url) async {
     
   
 }
+
+
+
+
+
   PreferredSize appBar(String title) {
+
+
     return PreferredSize(
+
       preferredSize: Size.fromHeight(80),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -117,7 +136,9 @@ Future<void> myLaunchUrl(String url) async {
           actions: [
             Padding(
               padding: const EdgeInsets.only(left: 16),
-              child: Center(child: Text(" title",)),
+              child: Center(child: Text(title,style: TextStyle(
+                fontSize: 16,fontWeight: FontWeight.w300,fontFamily:'dana',color:
+                Colors.black),)),
             )
             
           ],
@@ -128,13 +149,16 @@ Future<void> myLaunchUrl(String url) async {
               width: 50,
               decoration: BoxDecoration(color: SolidColors.primaryColor,
               shape: BoxShape.circle),
-              child: Icon(Icons.keyboard_arrow_right,color: Colors.white,),
+              child: Icon(Icons.keyboard_arrow_right,color: Colors.white,size: 40,),
             ),
           ),
         ),
       ),
     );
   }
+
+
+
 
 class Loading extends StatelessWidget {
   const Loading({

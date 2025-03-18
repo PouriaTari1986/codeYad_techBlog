@@ -1,3 +1,4 @@
+ 
 import 'package:get/get.dart';
 import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/models/articel_model.dart';
@@ -15,16 +16,16 @@ class ArtlicleConteroller extends GetxController {
 @override
  void onInit() {
     super.onInit();
-    getHomeArticleList();
+    getList();
   }
 
 
   
 
-getHomeArticleList()async{
+getList()async{
 
   loading.value = true;
-  //TODO : GET USER id FROM GET sTORAGE
+
 
 var response = await DioServices().getMethod(ApiConstant.getHomeArticleList);
 
@@ -39,6 +40,6 @@ if(response.statusCode==200){
 
   loading.value = false;
 }
- 
 }
+ 
 }

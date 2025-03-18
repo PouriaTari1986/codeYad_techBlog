@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/models/articel_model.dart';
@@ -48,6 +50,8 @@ if(response.statusCode==200){
   
 
   loading.value = false;
+}else{
+  log("message");
 }
  
 

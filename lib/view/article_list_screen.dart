@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tech_blog/component/my_component.dart' show appBar;
+import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/controller/artlicle_conteroller.dart';
 
 // ignore: must_be_immutable

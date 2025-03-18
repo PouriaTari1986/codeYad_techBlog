@@ -4,7 +4,7 @@ class ApiConstant {
   static const baseUrl = 'https://techblog.sasansafari.com/Techblog/api/';
   // ignore: prefer_interpolation_to_compose_strings
   static const getHomeItems = baseUrl + 'home/?command=index';
-  static const getHomeArticleList = '${baseUrl}article/get.php?command=new&user_id=';
+  static const getHomeArticleList = 'https://techblog.sasansafari.com/Techblog/api/article/get.php?command=new&user_id=';
 
 
 }

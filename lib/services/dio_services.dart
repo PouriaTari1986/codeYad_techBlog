@@ -1,3 +1,5 @@
+
+
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -11,11 +13,17 @@ Future<dynamic> getMethod(String url) async{
 
   dio.options.headers["content-type"] = "application/json";
     return await dio.get(url,
-    options: Options(responseType: ResponseType.json,method: "GET")
+    options: Options(responseType: ResponseType.json,method: "GET")          
     ).then((response){
-      log(response.toString());
-      return response;
+
+     log(response.toString());
+      return Response;
     });
 }
 
 }
+
+// ((response){
+//       log(response.toString());
+//       return response;
+//     });
