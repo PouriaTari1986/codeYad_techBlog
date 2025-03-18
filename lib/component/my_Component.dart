@@ -117,7 +117,7 @@ Future<void> myLaunchUrl(String url) async {
           actions: [
             Padding(
               padding: const EdgeInsets.only(left: 16),
-              child: Center(child: Text(" title",style: Theme.of(context).textTheme.titleSmall,)),
+              child: Center(child: Text(" title",)),
             )
             
           ],

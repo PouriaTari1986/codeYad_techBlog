@@ -8,6 +8,7 @@ class ArticleModel {
   String? catName;
   String? author;
   String? view;
+  // String? isFavorite;
   String? status;
   String? createdAt;
 
@@ -19,6 +20,7 @@ class ArticleModel {
     required this.catName,
     required this.author,
     required this.view,
+    // this.isFavorite,
     required this.status,
     required this.createdAt,
   });
