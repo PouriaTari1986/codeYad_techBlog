@@ -38,8 +38,9 @@ if(response.statusCode==200){
   });
 
 
-  loading.value = false;
+  
 }
+loading.value = false;
 }
  
 }
