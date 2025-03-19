@@ -9,9 +9,11 @@ import 'package:tech_blog/controller/artlicle_conteroller.dart';
 
 // ignore: must_be_immutable
 class ArticleListScreen extends StatelessWidget {
-   ArticleListScreen({super.key});
+    ArticleListScreen({super.key});
 
-   ArtlicleConteroller artlicleConteroller =  Get.put(ArtlicleConteroller());
+
+  ArticleController articleController =Get.put(ArticleController());
+
   @override
   Widget build(BuildContext context) {
 
@@ -27,7 +29,7 @@ class ArticleListScreen extends StatelessWidget {
           child: Obx(
             ()=> ListView.builder(
               scrollDirection: Axis.vertical,
-              itemCount: artlicleConteroller.articleList.length ,
+              itemCount: articleController.articleList.length,
               itemBuilder: ((context,index){
                 
                 return 
@@ -40,7 +42,8 @@ class ArticleListScreen extends StatelessWidget {
                         width: Get.width/3,
                         height: Get.height/6,
                         child: CachedNetworkImage(
-                         imageUrl:artlicleConteroller.articleList[index].image!,                  
+                         imageUrl:
+                         articleController.articleList[index].image!,                  
                          imageBuilder: (context, imageProvider) => 
                           Container(
                             decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -61,7 +64,8 @@ class ArticleListScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,                    
                         children: [
                           SizedBox(width: Get.width/2,
-                            child: Text(artlicleConteroller.articleList[index].title!,
+                            child: Text(
+                              articleController.articleList[index].title!,
                             style: TextStyle(fontFamily: "dana",fontSize: 16,
                             fontWeight: FontWeight.w700,
                             color: Colors.black),
@@ -73,12 +77,13 @@ class ArticleListScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                   
-                              Text(artlicleConteroller.articleList[index].author!,
+                              Text(
+                                articleController.articleList[index].author!,
                               style: TextStyle(fontFamily: "dana",fontSize: 16,fontWeight: FontWeight.w300,
                               color: Colors.grey.withAlpha(150)
                               ),),
                                 SizedBox(width: 20,),
-                              Text(artlicleConteroller.articleList[index].view!+ "بازدید",style:
+                              Text("${articleController.articleList[index].view!}بازدید",style:
                                 TextStyle(fontFamily: "dana",fontSize: 14,fontWeight: FontWeight.w300,
                                 color: Colors.grey.withAlpha(150))
                               ,)

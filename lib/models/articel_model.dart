@@ -24,7 +24,7 @@ class ArticleModel {
     required this.status,
     required this.createdAt,
   });
-  ArticleModel.fromJson(Map<String, dynamic> element) {
+     ArticleModel.fromJson(Map<String, dynamic> element) {
      id = element["id"];
      title = element["title"];
      image =ApiConstant.hostDlUrl + element["image"];
